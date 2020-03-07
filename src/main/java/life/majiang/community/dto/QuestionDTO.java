@@ -1,9 +1,10 @@
-package life.majiang.community.model;
+package life.majiang.community.dto;
 
+import life.majiang.community.model.User;
 import lombok.Data;
 
 @Data
-public class Question {
+public class QuestionDTO {
     private Integer id;
     private Integer creator;
     private Integer viewCount;
@@ -16,5 +17,7 @@ public class Question {
 
     private Long GmtCreate;
     private Long GmtModified;
+
+    private User user;
 
 }
