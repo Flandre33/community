@@ -18,3 +18,13 @@ body{
     font-weight: normal;
     color: #999;
 }
+.profile .section{
+    margin-top: 15px;
+}
+.profile .section .blue{
+    background-color: lightblue;
+}
+.community-menu{
+    color:#999;
+    font-size: 12px;
+}
