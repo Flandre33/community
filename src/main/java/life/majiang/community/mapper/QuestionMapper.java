@@ -137,4 +137,5 @@ public interface QuestionMapper {
     int updateByPrimaryKey(Question record);
     int incView(Question record);
     int incCommentCount(Question record);
+    List<Question> selectRelated(Question question);
 }

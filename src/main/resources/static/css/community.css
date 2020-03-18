@@ -68,11 +68,11 @@ body {
 }
 
 .question-related {
-    line-height: 20px;
-    font-size: 12px;
+    line-height: 25px;
+    font-size: 15px;
     margin-left: 0;
     list-style: none;
-    padding-left: 0;
+    padding: 0;
 }
 
 .question-wechat {
@@ -170,3 +170,12 @@ body {
 .red {
     color: red !important;
 }
+.desc {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow:ellipsis;
+    width:50px;
+}
+
+
