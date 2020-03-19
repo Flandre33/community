@@ -43,7 +43,11 @@
                             placeholder : "Please write down...",
                             imageUpload: true,
                             imageFormats: ["jpg", "jpeg",  "gif", "png", "bmp", "webp"],
-                            imageUploadURL: "/file/upload"
+                            imageUploadURL: "/file/upload",
+                            onload: function() {
+                                // 引入插件 执行监听方法
+                                this.executePlugin("imagePaste", "image-handle-paste/image-handle-paste");
+                            }
                         });
                     });
                 </script>
@@ -89,5 +93,6 @@
         </div>
     </div>
 </div>
+<div th:insert="footer :: foot"></div>
 </body>
 </html>

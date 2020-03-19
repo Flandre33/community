@@ -127,3 +127,51 @@ function selectTag(e) {
         }
     }
 }
+//监听粘贴服务
+function parser() {
+    document.getElementById('test-editormd').addEventListener('paste', function ($event) {
+            var template = {
+                array: ($event.clipboardData || $event.originalEvent.clipboardData).items,
+                blob: null,
+                url: null
+            }
+
+            for (var key in template.array) {
+                var val = template.array[key];
+                if (val.kind === 'file') {
+                    template.blob = val.getAsFile();
+                    if (template.blob) {
+                        //相应ajax等上传代码
+
+                        var data = new FormData();
+                        data.append('imgFile', template.blob);
+
+                        $.ajax({
+                            type: 'POST',
+                            url: "",
+                            data: data,
+                            cache: false,
+                            processData: false,
+                            contentType: false,
+                            success: function (res) {
+                                console.log(res);
+
+                                if (res.code === 200) {
+                                    let resultImgUrl = res.result.resultImgUrl;
+                                    testEditor.insertValue("![](" + resultImgUrl + ")")
+                                    layer.msg("图片上传成功了，记得最后要刷新图床哦，避免频繁刷新哦！")
+                                } else {
+                                    layer.msg("图片上传失败了，请重试")
+                                }
+
+                            }
+                        });
+                    }
+                }
+
+
+            }
+
+        }
+    )
+}
